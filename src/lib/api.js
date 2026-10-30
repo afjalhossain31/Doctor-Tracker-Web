@@ -6,7 +6,8 @@ export const USER_KEY = 'dt_user';
 export const setSession = (token, user) => {
   localStorage.setItem(TOKEN_KEY, token);
   localStorage.setItem(USER_KEY, JSON.stringify(user));
-  document.cookie = `${TOKEN_KEY}=1; path=/; max-age=${7 * 24 * 3600}; samesite=lax`;
+  // Cookie line-ti fix ba remove kore dewa holo jate syntax error na hoy
+  document.cookie = `${TOKEN_KEY}=${token}; path=/; max-age=${7 * 24 * 3600}; samesite=lax`;
 };
 
 export const clearSession = () => {
@@ -15,7 +16,9 @@ export const clearSession = () => {
   document.cookie = `${TOKEN_KEY}=; path=/; max-age=0`;
 };
 
-const api = axios.create({ baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api' });
+const api = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'
+});
 
 api.interceptors.request.use((cfg) => {
   const token = typeof window !== 'undefined' ? localStorage.getItem(TOKEN_KEY) : null;
