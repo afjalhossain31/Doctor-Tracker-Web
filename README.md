@@ -74,13 +74,3 @@ Flow: login calls the API and stores the JWT. An Axios interceptor adds it to ev
 3. Deploy. Then set `CLIENT_URL` on the Render API to your Vercel URL so CORS allows it.
 4. Changing `NEXT_PUBLIC_API_URL` needs a redeploy, since it is baked in at build time.
 
-## Visual Evidence
-
-Desktop (1440px) and mobile (390px) screenshots:
-
-| Desktop | Mobile |
-| --- | --- |
-| ![Login](docs/screenshots/login-desktop.png) | ![Login](docs/screenshots/login-mobile.png) |
-| ![Dashboard](docs/screenshots/dashboard-desktop.png) | ![Dashboard](docs/screenshots/dashboard-mobile.png) |
-| ![Doctors](docs/screenshots/doctors-desktop.png) | ![Doctors](docs/screenshots/doctors-mobile.png) |
-| ![Patients](docs/screenshots/patients-desktop.png) | ![Patients](docs/screenshots/patients-mobile.png) |
